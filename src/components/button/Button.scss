@@ -1,0 +1,54 @@
+.rds-button {
+    background-color: #e1eaf3;
+    border-radius: 8px;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px;
+    transition: background-color 0.2s ease-out;
+
+    &:hover {
+        background-color: #c4cdd6;
+    }
+
+    &[disabled] {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    &[color] {
+        color: #FFFFFF;
+    }
+
+    &[color=green] {
+        background-color: #4fdd59;
+
+        &:hover {
+            background-color: #49b950;
+        }
+    }
+
+    &[color=orange] {
+        background-color: #e67526;
+
+        &:hover {
+            background-color: #cb6621;
+        }
+    }
+
+    &[color=red] {
+        background-color: #ed432d;
+
+        &:hover {
+            background-color: #cc3a27;
+        }
+    }
+
+    &[color=blue] {
+        background-color: #5193dc;
+
+        &:hover {
+            background-color: #4b84c8;
+        }
+    }
+}
