@@ -1,31 +1,97 @@
+button,
 .rds-button {
-  background-color: #e1eaf3;
-  border-radius: 8px;
-  color: #333333;
+  border: solid 1px transparent;
+  border-radius: 4px;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  padding: 8px;
-  transition: background-color 0.2s ease-out; }
-  .rds-button:hover {
-    background-color: #c4cdd6; }
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  transition: background-color 0.2s ease-out;
+  padding: 7px 23px;
+  background-color: #19abff; }
+  button:hover, button[disabled],
+  .rds-button:hover,
   .rds-button[disabled] {
-    pointer-events: none;
-    opacity: 0.5; }
-  .rds-button[color] {
-    color: #FFFFFF; }
+    position: relative; }
+    button:hover:not(.rds-button--secondary)::after, button[disabled]:not(.rds-button--secondary)::after,
+    .rds-button:hover:not(.rds-button--secondary)::after,
+    .rds-button[disabled]:not(.rds-button--secondary)::after {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      content: '';
+      margin: -1px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0; }
+  button:hover::after,
+  .rds-button:hover::after {
+    background-color: rgba(255, 255, 255, 0.1); }
+  button[disabled],
+  .rds-button[disabled] {
+    pointer-events: none; }
+    button[disabled].rds-button--secondary,
+    .rds-button[disabled].rds-button--secondary {
+      border-color: #d3dee6;
+      color: #d3dee6; }
+    button[disabled]:not(.rds-button--secondary)::after,
+    .rds-button[disabled]:not(.rds-button--secondary)::after {
+      background-color: rgba(255, 255, 255, 0.65); }
+  button:hover, button:active,
+  .rds-button:hover,
+  .rds-button:active {
+    background-color: #0079bf; }
+  button.rds-button--secondary,
+  .rds-button.rds-button--secondary {
+    border-color: #19abff;
+    color: #19abff; }
+    button.rds-button--secondary:hover:not(:active),
+    .rds-button.rds-button--secondary:hover:not(:active) {
+      box-shadow: 0 0 2px 0 rgba(25, 171, 255, 0.8); }
+    button.rds-button--secondary:active,
+    .rds-button.rds-button--secondary:active {
+      color: #0079bf; }
+  button[color=green],
   .rds-button[color=green] {
-    background-color: #4fdd59; }
-    .rds-button[color=green]:hover {
-      background-color: #49b950; }
-  .rds-button[color=orange] {
-    background-color: #e67526; }
-    .rds-button[color=orange]:hover {
-      background-color: #cb6621; }
+    background-color: #38d667; }
+    button[color=green]:hover, button[color=green]:active,
+    .rds-button[color=green]:hover,
+    .rds-button[color=green]:active {
+      background-color: #13bf47; }
+    button[color=green].rds-button--secondary,
+    .rds-button[color=green].rds-button--secondary {
+      border-color: #38d667;
+      color: #38d667; }
+      button[color=green].rds-button--secondary:hover:not(:active),
+      .rds-button[color=green].rds-button--secondary:hover:not(:active) {
+        box-shadow: 0 0 2px 0 rgba(56, 214, 103, 0.8); }
+      button[color=green].rds-button--secondary:active,
+      .rds-button[color=green].rds-button--secondary:active {
+        color: #13bf47; }
+  button[color=red],
   .rds-button[color=red] {
-    background-color: #ed432d; }
-    .rds-button[color=red]:hover {
-      background-color: #cc3a27; }
-  .rds-button[color=blue] {
-    background-color: #5193dc; }
-    .rds-button[color=blue]:hover {
-      background-color: #4b84c8; }
+    background-color: #e65a45; }
+    button[color=red]:hover, button[color=red]:active,
+    .rds-button[color=red]:hover,
+    .rds-button[color=red]:active {
+      background-color: #d1402a; }
+    button[color=red].rds-button--secondary,
+    .rds-button[color=red].rds-button--secondary {
+      border-color: #e65a45;
+      color: #e65a45; }
+      button[color=red].rds-button--secondary:hover:not(:active),
+      .rds-button[color=red].rds-button--secondary:hover:not(:active) {
+        box-shadow: 0 0 2px 0 rgba(230, 90, 69, 0.8); }
+      button[color=red].rds-button--secondary:active,
+      .rds-button[color=red].rds-button--secondary:active {
+        color: #d1402a; }
+  button.rds-button--secondary,
+  .rds-button.rds-button--secondary {
+    background-color: transparent; }
+    button.rds-button--secondary:hover, button.rds-button--secondary:active,
+    .rds-button.rds-button--secondary:hover,
+    .rds-button.rds-button--secondary:active {
+      background-color: transparent; }

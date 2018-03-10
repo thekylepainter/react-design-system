@@ -1,0 +1,45 @@
+input {
+  background-color: $white;
+  border: solid 1px $blue-grey--500;
+  border-radius: 4px;
+  height: 36px;
+  padding: 8px;
+  width: 180px;
+
+  &::placeholder {
+    color: $grey--300;
+  }
+
+  &:disabled {
+    background-color: $grey--100;
+    color: $grey--500;
+    pointer-events: none;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $blue--500;
+    box-shadow: 0 0 2px 0 rgba($blue--500, 0.8);
+    outline: none;
+  }
+
+  &.invalid {
+    border-color :$red--500;
+    color: $red--500;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 2px 0 rgba($red--500, 0.8);
+    }
+  }
+
+  &.valid {
+    border-color :$green--500;
+    color: $green--500;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 2px 0 rgba($green--500, 0.8);
+    }
+  }
+}

@@ -1,54 +1,93 @@
+@import "../../sass/mixins/colours";
+
+@mixin buttonColour($fill-color, $active-color) {
+    background-color: $fill-color;
+
+    &:hover,
+    &:active {
+        background-color: $active-color;
+    }
+
+    &.rds-button--secondary {
+        border-color: $fill-color;
+        color: $fill-color;
+
+        &:hover:not(:active) {
+            box-shadow: 0 0 2px 0 rgba($fill-color, 0.8);
+        }
+
+        &:active {
+            color: $active-color;
+        }
+    }
+}
+
+button,
 .rds-button {
-    background-color: #e1eaf3;
-    border-radius: 8px;
-    color: #333333;
+    border: solid 1px transparent;
+    border-radius: 4px;
+    color: $white;
     cursor: pointer;
     display: inline-block;
-    padding: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
     transition: background-color 0.2s ease-out;
 
-    &:hover {
-        background-color: #c4cdd6;
+    // Subtract 1px from padding to account for the border width
+    padding: 7px 23px;
+
+    &:hover,
+    &[disabled] {
+        position: relative;
+
+        &:not(.rds-button--secondary)::after {
+            background-color: rgba($white, 0.1);
+            border-radius: 4px;
+            content: '';
+            margin: -1px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    &:hover::after {
+        background-color: rgba($white, 0.1);
     }
 
     &[disabled] {
         pointer-events: none;
-        opacity: 0.5;
+
+        &.rds-button--secondary {
+            border-color: $blue-grey--300;
+            color: $blue-grey--300;
+        }
+
+        &:not(.rds-button--secondary)::after {
+            background-color: rgba($white, 0.65);
+        }
     }
 
-    &[color] {
-        color: #FFFFFF;
-    }
+    @include buttonColour($blue--500, $blue--700);
 
     &[color=green] {
-        background-color: #4fdd59;
-
-        &:hover {
-            background-color: #49b950;
-        }
-    }
-
-    &[color=orange] {
-        background-color: #e67526;
-
-        &:hover {
-            background-color: #cb6621;
-        }
+        @include buttonColour($green--500, $green--700);
     }
 
     &[color=red] {
-        background-color: #ed432d;
-
-        &:hover {
-            background-color: #cc3a27;
-        }
+        @include buttonColour($red--500, $red--700);
     }
 
-    &[color=blue] {
-        background-color: #5193dc;
 
-        &:hover {
-            background-color: #4b84c8;
+    &.rds-button--secondary {
+        background-color: transparent;
+
+        &:hover,
+        &:active {
+            background-color: transparent;
         }
     }
 }

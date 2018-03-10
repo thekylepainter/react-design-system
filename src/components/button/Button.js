@@ -3,13 +3,15 @@ import './Button.css';
 
 class Button extends Component {
     render() {
-        return <a color={this.props.color} className={`rds-button ${this.props.className}`} disabled={this.props.disabled}>Button</a>
+        let secondaryClass = this.props.secondary ? 'rds-button--secondary' : '';
+        return <a color={this.props.color} className={`rds-button ${secondaryClass} ${this.props.className}`} disabled={this.props.disabled}>Button</a>
     }
 }
 
 Button.defaultProps = {
     className: '',
-    disabled: false
+    disabled: false,
+    secondary: false
 };
 
 export default Button;

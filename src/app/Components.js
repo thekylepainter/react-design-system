@@ -1,50 +1,39 @@
 import React from 'react'
-import {
-    Route,
-    NavLink
-} from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import ButtonDemo from './examples/ButtonDemo'
 import DropdownDemo from './examples/DropdownDemo'
 
-const components = [
-    {
-        path: '/button',
-        name: 'Button',
-        component: ButtonDemo
-    },
-    {
-        path: '/dropdown',
-        name: 'Dropdown',
-        component: DropdownDemo
-    }
-];
-
 const Components = ({match}) => (
     <React.Fragment>
-        <ul className="rds-sidebar">
-            {components.map(component => (
-                <li key={component.name}>
-                    <NavLink to={match.url + component.path}>
-                        {component.name}
-                    </NavLink>
-                </li>
-            ))}
-        </ul>
-
-        <section className="rds-content">
+        <Switch>
             <Route exact path={match.url} render={() => (
-                <React.Fragment>
-                    <h3>Components</h3>
-                    <p>Please select a component.</p>
-                </React.Fragment>
+                <p>Please select a component.</p>
             )}/>
 
-            {components.map(component => (
-                <Route key={component.name} path={match.url + component.path} component={component.component}/>
+            {route.routes.map(route => (
+                <Route key={route.title} path={match.url + route.path} component={route.component}/>
             ))}
-        </section>
+        </Switch>
     </React.Fragment>
 );
 
-export default Components
+const route = {
+    path: '/components',
+    title: 'Components',
+    component: Components,
+    routes: [
+        {
+            path: '/button',
+            title: 'Button',
+            component: ButtonDemo
+        },
+        {
+            path: '/dropdown',
+            title: 'Dropdown',
+            component: DropdownDemo
+        }
+    ]
+};
+
+export default route

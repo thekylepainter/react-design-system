@@ -1,0 +1,97 @@
+$f-heading: Raleway, Arial, sans-serif;
+$f-body: 'Open Sans', Arial, sans-serif;
+
+.f-uber {
+  font-family: $f-heading;
+  font-size: 42px;
+}
+
+.f-hero {
+  font-family: $f-heading;
+  font-size: 36px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 0;
+}
+
+h1,
+.f-h1 {
+  font-family: $f-heading;
+  font-size: 30px;
+}
+
+h2,
+.f-h2 {
+  font-family: $f-heading;
+  font-size: 26px;
+}
+
+h3,
+.f-h3 {
+  font-family: $f-heading;
+  font-size: 22px;
+}
+
+h4,
+.f-h4 {
+  font-family: $f-heading;
+  font-size: 18px;
+}
+
+h5,
+.f-h5 {
+  font-family: $f-heading;
+  font-size: 16px;
+}
+
+h6,
+.f-h6 {
+  font-family: $f-heading;
+  font-size: 14px;
+}
+
+.f-lead {
+  font-family: $f-body;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.f-body {
+  font-family: $f-body;
+  font-size: 14px;
+}
+
+.f-body--small {
+  font-family: $f-body;
+  font-size: 13px;
+}
+
+.f--bold {
+  font-weight: 600;
+}
+
+.f--green {
+  color: $green--500;
+}
+
+.f--red {
+  color: $red--500;
+}
+
+.f--blue {
+  color: $blue--500;
+}
+
+.f--white {
+  color: $white;
+}
+
+.f--align-center {
+  text-align: center;
+}
+
+.f--align-right {
+  text-align: center;
+}

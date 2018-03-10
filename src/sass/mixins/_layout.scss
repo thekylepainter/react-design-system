@@ -1,0 +1,23 @@
+@mixin grid-col-12() {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 8px;
+}
+
+@mixin grid-col-span($span) {
+  grid-column: auto span $span;
+}
+
+@mixin grid-col-span-center($span) {
+  grid-column: #{$span} / #{-$span};
+}
+
+@mixin grid-section() {
+  @include grid-col-12();
+
+  > section {
+    margin-top: 16px;
+
+    @include grid-col-span-center(2);
+  }
+}

@@ -1,0 +1,168 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#root {
+  min-height: 100%;
+}
+
+@mixin static-section() {
+  padding: 0 64px;
+
+  > section {
+    margin: 16px 0;
+  }
+}
+
+@media (max-width: 959px) {
+  #root {
+    position: relative;
+
+    > nav {
+      height: 100%;
+      width: 240px;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: -240px;
+      z-index: 100;
+      transition: left 0.2s ease-out;
+
+      &.slide-in {
+        left: 0;
+
+        &::after {
+          left: 240px;
+          opacity: 0.35;
+          width: calc(100% - 240px);
+        }
+      }
+
+      &::after {
+        background-color: $black;
+        content: ' ';
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+
+        transition: opacity 0.2s ease-out,
+        width 0.2s ease-out,
+        left 0.2s ease-out;
+      }
+    }
+
+    > .rds-tabs {
+      @include static-section();
+    }
+
+    > aside {
+      @include static-section();
+    }
+
+    > main {
+      @include static-section();
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  #root {
+    > .rds-tabs {
+      padding: 0 32px;
+    }
+
+    > aside {
+      padding: 0 32px;
+    }
+
+    > main {
+      padding: 0 32px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  #root {
+    > .rds-tabs {
+      padding: 0 16px;
+    }
+
+    > aside {
+      padding: 0 16px;
+    }
+
+    > main {
+      padding: 0 16px;
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  #root {
+    display: grid;
+
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto minmax(0, min-content) minmax(0, min-content) 1fr;
+    grid-template-areas: 'nav header'
+                         'nav tabs'
+                         'nav aside'
+                         'nav main';
+
+    > nav {
+      position: static;
+      grid-area: nav;
+    }
+
+    > header {
+      grid-area: header;
+    }
+
+    > .rds-tabs {
+      grid-area: tabs;
+
+      @include grid-section();
+    }
+
+    > aside {
+      grid-area: aside;
+    }
+
+    > main {
+      grid-area: main;
+
+      @include grid-section();
+    }
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1279px) {
+  #root {
+    > aside {
+      @include grid-section();
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  #root {
+    grid-template-columns: 240px 1fr minmax(0, min-content);
+    grid-template-rows: auto minmax(0, min-content) 1fr;
+    grid-template-areas: 'nav header header'
+                         'nav tabs .'
+                         'nav main aside';
+
+
+    > aside {
+      height: auto;
+      width: 288px;
+      padding: 16px;
+    }
+  }
+}
