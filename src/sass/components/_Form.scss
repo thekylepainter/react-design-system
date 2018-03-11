@@ -1,0 +1,14 @@
+form {
+  @include grid();
+  grid-row-gap: 16px;
+  margin-top: 16px;
+  max-width: 600px;
+
+  label {
+    display: inline-block;
+
+    input, select {
+      margin-top: 8px;
+    }
+  }
+}

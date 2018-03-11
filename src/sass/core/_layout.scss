@@ -18,6 +18,24 @@ body {
   }
 }
 
+.grid-col-row {
+  grid-column: span $grid-columns;
+}
+
+.grid-col-end {
+  justify-self: end;
+}
+
+@for $i from 1 through $grid-columns {
+  .grid-col-#{$i} {
+    @include grid-col-span($i)
+  }
+
+  .grid-col-right-#{$i} {
+    @include grid-col-right-span($i)
+  }
+}
+
 @media (max-width: 959px) {
   #root {
     position: relative;

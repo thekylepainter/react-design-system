@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import ButtonDemo from './examples/ButtonDemo'
 import DropdownDemo from './examples/DropdownDemo'
+import FormDemo from './examples/FormDemo'
 
 const Components = ({match}) => (
     <React.Fragment>
@@ -32,6 +33,11 @@ const route = {
             path: '/dropdown',
             title: 'Dropdown',
             component: DropdownDemo
+        },
+        {
+            path: '/form',
+            title: 'Form',
+            component: FormDemo
         }
     ]
 };

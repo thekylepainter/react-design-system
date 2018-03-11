@@ -1,11 +1,18 @@
-@mixin grid-col-12() {
+$grid-columns: 12;
+
+@mixin grid() {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat($grid-columns, 1fr);
   grid-column-gap: 8px;
 }
 
 @mixin grid-col-span($span) {
-  grid-column: auto span $span;
+  grid-column-start: span $span;
+}
+
+@mixin grid-col-right-span($span) {
+  grid-column-start: span $span;
+  grid-column-end: -1;
 }
 
 @mixin grid-col-span-center($span) {
@@ -13,7 +20,7 @@
 }
 
 @mixin grid-section() {
-  @include grid-col-12();
+  @include grid();
 
   > section {
     margin-top: 16px;
